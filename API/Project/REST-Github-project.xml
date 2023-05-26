@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4a1f7d9a-67d2-4b9b-a0c3-fb1f63d1a7d4" created="3.46.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="Github project" projectVersion="" updated="3.46.0 2023-05-11T09:29:01Z" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="abec38f8-f400-46b3-bbc3-c0d0ac1ab797" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://api.github.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings id="688bb3bd-e06f-4711-be75-ffc4610c8828"/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>https://api.github.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Emails" path="/user/emails" id="d578918e-bbd3-4a44-a4f6-e888a66ce61e">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Emails" id="d6449016-5a09-4fed-8419-4585216ecbc0" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="bf51f2fa-922f-4779-9ac6-57032426e4bc" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://api.github.com</con:endpoint>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="Keys" path="/user/keys" id="6caff5f8-e473-4de4-9734-74d4fed72bff">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Keys" id="cd6e32e3-432a-4915-881d-752f2f1713c6" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+          <con:element xmlns:keys="https://api.github.com/user/keys">keys:Response</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:element xmlns:keys="https://api.github.com/user/keys">keys:Fault</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="fdd94e1d-4a73-4dff-8098-9bbadd08775f" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://api.github.com</con:endpoint>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="KeyId" path="/user/keys/{keyId}" id="b1925868-463e-4d69-9592-fdf7f90c3fd1">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>keyId</con:name>
+          <con:style>TEMPLATE</con:style>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="KeyId" id="38e55bf5-df42-420c-8b20-8b722e5cda20" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>keyId</con:name>
+            <con:value>keyId</con:value>
+            <con:style>TEMPLATE</con:style>
+            <con:default>keyId</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:element xmlns:api="https://api.github.com/">api:Fault</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>204</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="431b0ac1-18e8-4cf7-98aa-d7125c96c576" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://api.github.com</con:endpoint>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters>
+            <con:entry key="keyId" value="keyId"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>keyId</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="24d69c75-2330-4dfa-b59b-a1471bb5d6b3" name="https://api.github.com Test Suite">
+    <con:settings id="80ef9649-a256-41f4-9776-f35119a49edb"/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="590997a5-d25d-4ef6-9ac1-d504003b2a88" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="GET_Key" id="6c5e93ba-75a2-485b-a6ca-87ade9a27359">
+        <con:settings/>
+        <con:config service="https://api.github.com" resourcePath="/user/emails" methodName="Emails" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="GET_Key" id="bf51f2fa-922f-4779-9ac6-57032426e4bc" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.github.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://api.github.com/user/emails</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="f7f5e420-ea09-400b-a2af-e26604d162d4" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>githubauthprofile</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="POST_Key" id="ca4b66be-53d9-4c4d-aa15-83cb769a4256">
+        <con:settings/>
+        <con:config service="https://api.github.com" resourcePath="/user/keys" methodName="Keys" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="POST_Key" id="fdd94e1d-4a73-4dff-8098-9bbadd08775f" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.github.com</con:endpoint>
+            <con:request>{
+ "title":"TestKey",
+ "key":"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICUCo8PW6cmIRthjM//m0ye0jfHzND4b96WlT+Xk/rLu gmx"
+	
+}</con:request>
+            <con:originalUri>https://api.github.com/user/keys</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="ab3af37f-0e20-4108-9465-7a87088c541f" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>201</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>githubauthprofile</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property Transfer" id="90f8633b-f444-4742-852c-c23eb2bda52f">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>key</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>POST_Key</con:sourceStep>
+            <con:sourcePath>$['id']</con:sourcePath>
+            <con:targetType>keyId</con:targetType>
+            <con:targetStep>DELETE_Key</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="DELETE_Key" id="ad7c4ebe-ff7b-4b1e-9cc7-c40f53fe9735">
+        <con:settings/>
+        <con:config service="https://api.github.com" resourcePath="/user/keys/{keyId}" methodName="KeyId" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="DELETE_Key" id="431b0ac1-18e8-4cf7-98aa-d7125c96c576" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.github.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://api.github.com/</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="a75079d5-1370-423a-917d-f953d015b8a7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>204</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>githubauthprofile</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="keyId" value="82586605"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>keyId</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer>
+    <con:oAuth2Profile>
+      <con:name>githubauthprofile</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:accessToken>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</con:accessToken>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:accessTokenStatus>ENTERED_MANUALLY</con:accessTokenStatus>
+      <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
+      <con:oAuth2Flow>AUTHORIZATION_CODE_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth2Profile>
+  </con:oAuth2ProfileContainer>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:reportTemplates>
+      <con:name>TestCase Report.copy</con:name>
+      <con:path xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:reportType>TESTCASE</con:reportType>
+      <con:reportLevel>MAINREPORT</con:reportLevel>
+      <con:nameInReport>TestCaseReport</con:nameInReport>
+      <con:data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TestCaseResults" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <parameter name="IncludeOverview" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include Test Case Overview"/>
+      <parameterDescription>Includes Test Case Overview information in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="IncludeResults" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include Latest Results"/>
+      <property name="depends" value="TestCaseTestStepResults,TestCaseTestStepParameters"/>
+      <parameterDescription>Includes Latest Test Case Results in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="FlowLayout" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Flow Layout"/>
+      <parameterDescription>Choose flow layout for report</parameterDescription>
+      <defaultValueExpression>false</defaultValueExpression>
+   </parameter>
+   <parameter name="ErrorDetails" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Detailed Error Information"/>
+      <property name="depends" value="FailedTestSteps"/>
+      <parameterDescription>Adds details for failed test items to report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="IncludeCoverage" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include Project Coverage"/>
+      <property name="depends" value="TestCaseCoverage"/>
+      <parameterDescription>Includes Coverage information in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="HeaderLogo" class="java.lang.String" isForPrompting="false">
+      <defaultValueExpression>"../../logos/header_logo.png"</defaultValueExpression>
+   </parameter>
+   <pageHeader>
+      <band height="51">
+         <printWhenExpression>$V{PAGE_NUMBER} == 1 || !$P{FlowLayout}</printWhenExpression>
+         <image scaleImage="RetainShape" hAlign="Right" isUsingCache="false" onErrorType="Blank">
+            <reportElement x="0" y="0" width="535" height="41"/>
+            <imageExpression class="java.lang.String">$P{HeaderLogo}</imageExpression>
+         </image>
+      </band>
+   </pageHeader>
+   <columnHeader>
+      <band height="77">
+         <printWhenExpression>$V{PAGE_NUMBER} == 1 || $P{FlowLayout}</printWhenExpression>
+         <staticText>
+            <reportElement style="MainHeader" x="0" y="0" width="535" height="35"/>
+            <textElement/>
+            <text>TestCase Results Report for</text>
+         </staticText>
+         <textField textAdjust="StretchHeight">
+            <reportElement style="MainHeader" x="0" y="35" width="535" height="40"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">"${=testCase.name}"</textFieldExpression>
+         </textField>
+      </band>
+   </columnHeader>
+   <detail>
+      <band height="318">
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="1" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestCase"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{ReportMetrics}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:MetricsReport"</subreportExpression>
+         </subreport>
+         <subreport>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="31" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestCase"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestCaseRequirements}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:RequirementsReport"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" x="0" y="61" width="535" height="1">
+               <printWhenExpression>$P{IncludeOverview} &amp;&amp; !$P{FlowLayout} &amp;&amp; $P{TestCaseTestSteps}.hasData()</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="62" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestStep"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestCaseTestSteps}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:ModelItemListReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="97" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestCase"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestProperties}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:PropertiesReport"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" x="0" y="127" width="535" height="1">
+               <printWhenExpression>$P{IncludeOverview} &amp;&amp; !$P{FlowLayout} &amp;&amp; $P{TestCaseMetrics}.hasData()</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="131" width="535" height="36" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeResults}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"Result"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestCaseMetrics}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:MetricsReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="173" width="535" height="28" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeResults}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestCaseTestStepResults}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:TestStepResultsReport"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" x="0" y="204" width="535" height="1">
+               <printWhenExpression>!$P{FlowLayout} &amp;&amp; $P{ErrorDetails} &amp;&amp; $P{FailedTestSteps}.hasData()</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="208" width="535" height="33" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{ErrorDetails}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{FailedTestSteps}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:FailedTestSteps"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="241" width="535" height="1" isRemoveLineWhenBlank="true">
+               <printWhenExpression>!$P{FlowLayout} &amp;&amp; $P{TestCaseCoverage}.hasData() &amp;&amp; $P{IncludeCoverage}</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="242" width="535" height="33" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeCoverage}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="TestCaseCoverage">
+               <subreportParameterExpression>$P{TestCaseCoverage}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestCaseCoverage}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:TestCaseCoverageChart"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="241" width="535" height="1" isRemoveLineWhenBlank="true">
+               <printWhenExpression>!$P{FlowLayout} &amp;&amp; $P{TestCaseCoverage}.hasData() &amp;&amp; $P{IncludeCoverage}</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="290" width="535" height="28">
+               <printWhenExpression>$P{IncludeResults}</printWhenExpression>
+            </reportElement>
+            <dataSourceExpression>$P{TestCaseTestStepParameters}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:TestStepParametersReport"</subreportExpression>
+         </subreport>
+      </band>
+   </detail>
+   <pageFooter>
+      <band height="21">
+         <printWhenExpression>!$P{FlowLayout}</printWhenExpression>
+         <textField>
+            <reportElement x="1" y="0" width="535" height="20" forecolor="#999999"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"created with ReadyAPI on " + new Date()</textFieldExpression>
+         </textField>
+      </band>
+   </pageFooter>
+   <lastPageFooter>
+      <band height="20">
+         <textField>
+            <reportElement x="1" y="0" width="535" height="20" forecolor="#999999"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"created with ReadyAPI on " + new Date()</textFieldExpression>
+         </textField>
+      </band>
+   </lastPageFooter>
+</jasperReport>]]></con:data>
+      <con:description>NO DESC</con:description>
+      <con:scope>PROJECT</con:scope>
+      <con:dataSource>UNKNOWN</con:dataSource>
+    </con:reportTemplates>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository>
+    <con:oAuth20AuthEntry>
+      <con:name>githubauthprofile</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:accessToken>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</con:accessToken>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:accessTokenStatus>ENTERED_MANUALLY</con:accessTokenStatus>
+      <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
+      <con:oAuth2Flow>AUTHORIZATION_CODE_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth20AuthEntry>
+  </con:authRepository>
+  <con:tags/>
+</con:soapui-project>
