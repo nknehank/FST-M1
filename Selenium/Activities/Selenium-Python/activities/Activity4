@@ -1,0 +1,52 @@
+# Target Practice
+"""
+Using Selenium:
+
+Open a new browser to https://training-support.net/selenium/target-practice
+Get the title of the page and print it to the console.
+Using xpath:
+Find the 3rd header on the page and print it's text to the console.
+Find the 5th header on the page and print it's color.
+Using any other locator:
+Find the violet button and print all it's classes.
+Find the grey button and print it's text.
+Close the browser.
+"""
+import colorsys
+
+# Import webdriver from selenium
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.core import driver
+from webdriver_manager.firefox import GeckoDriverManager
+
+# Set up the Firefox Driver with WebDriverManger
+service1 = FirefoxService(GeckoDriverManager().install())
+
+# Start the Driver
+with webdriver.Firefox(service=service1) as driver:
+    # Open the browser to the URL
+    driver.get("https://training-support.net/selenium/target-practice")
+    print("Home page Title is ", driver.title)
+
+    # 1. get the title of webpage
+    print("Title of webpage  target-practice is" + driver.title)
+    # 2. Using xpath Find the 3rd header on the page and print its text to the console
+    getText3rdHeader = driver.find_element(By.XPATH, "//*[@id=\"third-header\"]")
+    print("3rd Header Text" + getText3rdHeader.text)
+
+    # 3. Using xpath Find the 5th header on the page and print it's color.
+getColor5thHeader = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div[2]/div/div/div/div[1]/h5")
+print("5th Header color" + getColor5thHeader.value_of_css_property(colorsys))
+
+# 4. Using any other locator say ID find the violet button and print all it's classes.
+violetButtonClasses = driver.find_element(By.CLASS_NAME, "ui violet button")
+print("Violet button class name " + violetButtonClasses.get_attribute("class"))
+
+# 5. Using any locator say ID find the grey button and print its text.
+greyButtonText = driver.find_element(By.CLASS_NAME("ui grey button"))
+print("Grey button text " + greyButtonText.text)
+
+# Close the browser
+driver.close()
